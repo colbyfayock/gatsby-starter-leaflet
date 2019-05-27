@@ -13,8 +13,6 @@
     "leaflet": "^1.5.1",
     "node-sass": "^4.11.0",
     "path": "^0.12.7",
-    "proj4": "^2.5.0",
-    "proj4leaflet": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
