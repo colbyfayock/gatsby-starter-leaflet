@@ -1,0 +1,49 @@
+{
+  "name": "gatsby-starter-leaflet",
+  "description": "A Gatsby starter with Leafet!",
+  "version": "0.1.0",
+  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "dependencies": {
+    "gatsby": "^2.3.31",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-react-leaflet": "2.0.8",
+    "gatsby-plugin-resolve-src": "^2.0.0",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-source-filesystem": "^2.0.32",
+    "leaflet": "^1.5.1",
+    "node-sass": "^4.11.0",
+    "path": "^0.12.7",
+    "proj4": "^2.5.0",
+    "proj4leaflet": "^1.0.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-leaflet": "^2.3.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "gatsby",
+    "sass",
+    "leaflet",
+    "mapping",
+    "maps"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "lint": "Get started linting your code with Eslint and stylelint",
+    "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colbyfayock/gatsby-starter-leaflet"
+  },
+  "bugs": {
+    "url": "https://github.com/colbyfayock/gatsby-starter-leaflet/issues"
+  }
+}

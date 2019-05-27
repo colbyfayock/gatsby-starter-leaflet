@@ -1,0 +1,79 @@
+.page-home {
+
+  .map {
+    height: 80vh;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .gatsby-tooltip {
+    
+    display: flex;
+    padding: 1em;
+    border-radius: 1em;
+
+  }
+
+  .gatsby-astronaut {
+
+    overflow: hidden;
+    width: 10em;
+    height: 10em;
+    background-color: rebeccapurple;
+    border-radius: 100%;
+    border: solid 6px rebeccapurple;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+  }
+
+  .gatsby-tooltip-image {
+    display: flex;
+    align-items: center;
+    margin-right: 2em;
+  }
+  
+  .gatsby-tooltip-content {
+  
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-align: left;
+
+    h1 {
+      margin: 0 0 .2em;
+    }
+    p {
+      margin: 0 0 .5em;
+    }
+  
+  }
+
+}
+
+.home-start {
+
+  padding-top: 4em;
+  padding-bottom: 4em;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 1.2em;
+  }
+
+  pre {
+    margin-bottom: 1.5em;
+  }
+  
+}

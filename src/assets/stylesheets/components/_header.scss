@@ -1,0 +1,37 @@
+header {
+
+  width: 100%;
+  color: white;
+  background-color: rebeccapurple;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    height: 2.5em;
+    line-height: 2.5em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    color: white;
+    opacity: .8;
+    padding: 0 .5em;
+  }
+
+  p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+  }
+
+}
