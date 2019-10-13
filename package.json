@@ -19,7 +19,17 @@
     "react-helmet": "^5.2.0",
     "react-leaflet": "^2.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0"
+  },
   "keywords": [
     "gatsby",
     "sass",
@@ -32,11 +42,23 @@
     "build": "gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
-    "lint": "Get started linting your code with Eslint and stylelint",
-    "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
+    "lint": "eslint -c ./config/eslint.config.js . --ext .js",
+    "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write '**/*.js'",
     "start": "yarn develop",
     "serve": "gatsby serve",
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "yarn format",
+      "yarn lint",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",

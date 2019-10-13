@@ -14,7 +14,7 @@ export function getMapServices() {
  * @description Tries to find a service given the name. Allows additional services passed in.
  */
 
-export function getMapServiceByName(name, userServices = []) {
+export function getMapServiceByName( name, userServices = []) {
   const services = [...getMapServices(), ...userServices];
-  return services.find(service => service.name === name);
+  return services.find(( service ) => service.name === name );
 }

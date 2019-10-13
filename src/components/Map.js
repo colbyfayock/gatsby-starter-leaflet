@@ -5,14 +5,8 @@ import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
 import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
 import { isDomAvailable } from 'lib/util';
 
-const Map = props => {
-  const {
-    children,
-    className,
-    defaultBaseMap = 'OpenStreetMap',
-    mapEffect,
-    ...rest
-  } = props;
+const Map = ( props ) => {
+  const { children, className, defaultBaseMap = 'OpenStreetMap', mapEffect, ...rest } = props;
 
   const mapRef = useRef();
 
@@ -26,7 +20,7 @@ const Map = props => {
   const services = useMapServices({
     names: ['OpenStreetMap']
   });
-  const basemap = services.find(service => service.name === defaultBaseMap);
+  const basemap = services.find(( service ) => service.name === defaultBaseMap );
 
   let mapClassName = `map`;
 
@@ -34,7 +28,7 @@ const Map = props => {
     mapClassName = `${mapClassName} ${className}`;
   }
 
-  if (!isDomAvailable()) {
+  if ( !isDomAvailable()) {
     return (
       <div className={mapClassName}>
         <p className="map-loading">Loading map...</p>
@@ -59,11 +53,10 @@ const Map = props => {
 };
 
 Map.propTypes = {
-  center: PropTypes.array,
   children: PropTypes.node,
-  map: PropTypes.string,
-  zoom: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
+  defaultBaseMap: PropTypes.string,
+  mapEffect: PropTypes.func
 };
 
 export default Map;

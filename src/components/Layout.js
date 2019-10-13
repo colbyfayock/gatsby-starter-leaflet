@@ -8,7 +8,6 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 const Layout = ({ children, pageName }) => {
-
   let className = '';
 
   if ( pageName ) {
@@ -17,7 +16,7 @@ const Layout = ({ children, pageName }) => {
 
   return (
     <>
-      <Helmet bodyAttributes={{ class: className}}>
+      <Helmet bodyAttributes={{ class: className }}>
         <title>Gatsby Site</title>
       </Helmet>
       <div className="wrapper">
@@ -27,12 +26,11 @@ const Layout = ({ children, pageName }) => {
       </div>
     </>
   );
-
 };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
   pageName: PropTypes.string
-}
+};
 
 export default Layout;

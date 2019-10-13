@@ -14,12 +14,11 @@ const LOCATION = {
   lng: -77.0369
 };
 const LOCATION_NAME = 'Washington, DC';
-const CENTER = [ LOCATION.lat, LOCATION.lng ];
+const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 const ZOOM = 10;
 
 const IndexPage = () => {
-
   const markerRef = useRef();
 
   /**
@@ -33,23 +32,21 @@ const IndexPage = () => {
 
     const popup = L.popup();
 
-    popup.setLatLng(LOCATION);
-    popup.setContent(`<p>Hello, ${LOCATION_NAME}!</p>`)
+    popup.setLatLng( LOCATION );
+    popup.setContent( `<p>Hello, ${LOCATION_NAME}!</p>` );
 
-    setTimeout(async () => {
-
-      await promiseToZoomIn(leafletElement, ZOOM);
+    setTimeout( async () => {
+      await promiseToZoomIn( leafletElement, ZOOM );
 
       const { current = {} } = markerRef || {};
       const { leafletElement: marker } = current;
 
-      marker.bindPopup(popup);
+      marker.bindPopup( popup );
 
       setTimeout(() => {
         marker.openPopup();
-      }, 4000);
-
-    }, 2000)
+      }, 4000 );
+    }, 2000 );
   }
 
   const mapSettings = {
@@ -57,7 +54,7 @@ const IndexPage = () => {
     defaultBaseMap: 'OpenStreetMap',
     zoom: DEFAULT_ZOOM,
     mapEffect
-  }
+  };
 
   return (
     <Layout pageName="home">
@@ -71,19 +68,12 @@ const IndexPage = () => {
 
       <Container type="content" className="text-center home-start">
         <h2>Still Getting Started?</h2>
-        <p>
-          Run the following in your terminal!
-        </p>
+        <p>Run the following in your terminal!</p>
         <pre>
-          <code>
-            gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet
-          </code>
+          <code>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</code>
         </pre>
-        <p className="note">
-          Note: Gatsby CLI required globally for the above command
-        </p>
+        <p className="note">Note: Gatsby CLI required globally for the above command</p>
       </Container>
-
     </Layout>
   );
 };
