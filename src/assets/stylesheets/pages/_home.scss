@@ -9,11 +9,35 @@
     padding: 0;
   }
 
-  .gatsby-tooltip {
-
+  .popup-gatsby {
     display: flex;
+    width: 36em;
     padding: 1em;
     border-radius: 1em;
+  }
+
+  .popup-gatsby-image {
+    display: flex;
+    align-items: center;
+    margin-right: 2em;
+  }
+
+  .popup-gatsby-content {
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    text-align: left;
+    padding-right: 1em;
+
+    h1 {
+      margin: 0 0 .2em;
+    }
+    p {
+      margin: 0 0 .5em;
+    }
 
   }
 
@@ -30,30 +54,6 @@
     img {
       width: 100%;
       height: auto;
-    }
-
-  }
-
-  .gatsby-tooltip-image {
-    display: flex;
-    align-items: center;
-    margin-right: 2em;
-  }
-
-  .gatsby-tooltip-content {
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    align-content: center;
-    text-align: left;
-
-    h1 {
-      margin: 0 0 .2em;
-    }
-    p {
-      margin: 0 0 .5em;
     }
 
   }

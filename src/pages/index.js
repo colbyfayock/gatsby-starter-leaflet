@@ -9,6 +9,8 @@ import Layout from 'components/Layout';
 import Container from 'components/Container';
 import Map from 'components/Map';
 
+import gatsby_astronaut from 'assets/images/gatsby-astronaut.jpg';
+
 const LOCATION = {
   lat: 38.9072,
   lng: -77.0369
@@ -18,22 +20,41 @@ const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 const ZOOM = 10;
 
+const timeToZoom = 2000;
+const timeToOpenPopupAfterZoom = 4000;
+const timeToUpdatePopupAfterZoom = timeToOpenPopupAfterZoom + 3000;
+
+const popupContentHello = `<p>Hello, ${LOCATION_NAME}!</p>`;
+const popupContentGatsby = `
+  <div class="popup-gatsby">
+    <div class="popup-gatsby-image">
+      <img class="gatsby-astronaut" src=${gatsby_astronaut} />
+    </div>
+    <div class="popup-gatsby-content">
+      <h1>Gatsby Leaflet Starter</h1>
+      <p>Welcome to your new Gatsby site. Now go build something great!</p>
+    </div>
+  </div>
+`;
+
 const IndexPage = () => {
   const markerRef = useRef();
 
   /**
    * mapEffect
    * @description Fires a callback once the page renders
-   * @example Here this is being used to zoom in and set a popup on load
+   * @example Here this is and example of being used to zoom in and set a popup on load
    */
 
   function mapEffect({ leafletElement } = {}) {
     if ( !leafletElement ) return;
 
-    const popup = L.popup();
+    const popup = L.popup({
+      maxWidth: 800
+    });
 
     popup.setLatLng( LOCATION );
-    popup.setContent( `<p>Hello, ${LOCATION_NAME}!</p>` );
+    popup.setContent( popupContentHello );
 
     setTimeout( async () => {
       await promiseToZoomIn( leafletElement, ZOOM );
@@ -43,10 +64,9 @@ const IndexPage = () => {
 
       marker.bindPopup( popup );
 
-      setTimeout(() => {
-        marker.openPopup();
-      }, 4000 );
-    }, 2000 );
+      setTimeout(() => marker.openPopup(), timeToOpenPopupAfterZoom );
+      setTimeout(() => marker.setPopupContent( popupContentGatsby ), timeToUpdatePopupAfterZoom );
+    }, timeToZoom );
   }
 
   const mapSettings = {
