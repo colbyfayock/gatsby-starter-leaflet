@@ -8,9 +8,17 @@ export function promiseToZoomIn( map, zoom ) {
     if ( !map.flyTo ) {
       reject( 'Failed to zoom: no flyTo method on map' );
     }
-    map.flyTo( map.getCenter(), zoom, {
+
+    if ( typeof zoom !== 'number' ) {
+      reject( `Failed to zoom: zoom invalid number ${zoom}` );
+    }
+
+    const center = map.getCenter();
+
+    map.flyTo( center, zoom, {
       duration: 2
     });
+
     map.once( 'moveend', () => {
       resolve();
     });

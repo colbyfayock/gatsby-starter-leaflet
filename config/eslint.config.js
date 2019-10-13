@@ -29,6 +29,7 @@ module.exports = {
 
   rules: {
     'arrow-parens': ['error', 'always'],
+    'eol-last': ['error', 'always'],
     'linebreak-style': ['error', 'unix'],
     'max-len': ['error', { code: 120, ignoreUrls: true }],
     'no-eval': 'error',
