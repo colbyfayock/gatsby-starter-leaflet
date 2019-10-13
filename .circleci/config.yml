@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.16.3
+    working_directory: ~/gatsby-starter-leaflet
+    steps:
+      - checkout
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+      - run: yarn test

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Container = ({children, className, type}) => {
-
+const Container = ({ children, className, type }) => {
   let containerClassName = 'container';
 
   if ( typeof type === 'string' ) {
@@ -13,12 +12,7 @@ const Container = ({children, className, type}) => {
     containerClassName = `${containerClassName} ${className}`;
   }
 
-  return (
-    <div className={containerClassName}>
-      { children }
-    </div>
-  );
-
+  return <div className={containerClassName}>{ children }</div>;
 };
 
 Container.propTypes = {

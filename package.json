@@ -1,25 +1,39 @@
 {
   "name": "gatsby-starter-leaflet",
   "description": "A Gatsby starter with Leafet!",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Colby Fayock <hello@colbyfayock.com>",
   "dependencies": {
-    "gatsby": "^2.3.31",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-react-leaflet": "2.0.8",
+    "gatsby": "^2.15.36",
+    "gatsby-plugin-react-helmet": "^3.1.11",
+    "gatsby-plugin-react-leaflet": "2.0.11",
     "gatsby-plugin-resolve-src": "^2.0.0",
-    "gatsby-plugin-sass": "^2.0.11",
-    "gatsby-source-filesystem": "^2.0.32",
+    "gatsby-plugin-sass": "^2.1.18",
+    "gatsby-source-filesystem": "^2.1.31",
     "leaflet": "^1.5.1",
     "node-sass": "^4.11.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-helmet": "^5.2.0",
-    "react-leaflet": "^2.3.0"
+    "react-leaflet": "^2.4.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.18",
+    "enzyme": "^3.10.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.1.2",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "prettier-eslint": "^9.0.0",
+    "prettier-eslint-cli": "^5.0.0"
+  },
   "keywords": [
     "gatsby",
     "sass",
@@ -30,12 +44,25 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
-    "lint": "Get started linting your code with Eslint and stylelint",
-    "format": "Get started formatting your code with Eslint, Prettier, and stylelint",
+    "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write '**/*.js'",
+    "lint": "eslint -c ./config/eslint.config.js . --ext .js",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'"
+    "test": "jest --config ./config/jest.config.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "yarn format",
+      "yarn lint",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",
