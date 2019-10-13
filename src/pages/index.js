@@ -1,16 +1,14 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Tooltip, Marker } from 'react-leaflet';
+import { Popup, Circle } from 'react-leaflet';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 import Map from 'components/Map';
 
-import img_gatsby from 'assets/images/gatsby-astronaut.png';
-
 const DEFAULT_LOCATION = {
-  lat: 38.805850,
-  lng: -77.041270
+  lat: 38.9072,
+  lng: -77.0369
 };
 
 const CENTER = [ DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lng ];
@@ -22,28 +20,13 @@ const IndexPage = () => {
         <title>Home Page</title>
       </Helmet>
 
-      <Map center={CENTER} zoom={14}>
-        <Marker position={DEFAULT_LOCATION}>
-          <Tooltip direction="top" offset={[0, -20]} opacity={1} permanent>
-            <Container className="gatsby-tooltip" type="content">
-              <div className="gatsby-tooltip-image">
-                <p className="gatsby-astronaut">
-                  <img src={img_gatsby} alt="Build with Gatsby!" />
-                </p>
-              </div>
-              <div className="gatsby-tooltip-content">
-                <h1>Gatsby Leaflet Starter</h1>
-                <p>
-                  Welcome to your new Gatsby site.
-                </p>
-                <p>
-                  Now go build something great!
-                </p>
-              </div>
-            </Container>
-          </Tooltip>
-        </Marker>
-      </Map>    
+      <Map center={CENTER} zoom={10}>
+        <Circle center={CENTER} fillColor="purple" color="purple" radius={10000}>
+          <Popup>
+            Washington, DC
+          </Popup>
+        </Circle>
+      </Map>
 
       <Container type="content" className="text-center home-start">
         <h2>Still Getting Started?</h2>

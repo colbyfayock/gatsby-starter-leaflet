@@ -1,7 +1,8 @@
 .page-home {
 
-  .map {
-    height: 80vh;
+  .map,
+  .map-base {
+    height: 50vh;
   }
 
   main {
@@ -9,7 +10,7 @@
   }
 
   .gatsby-tooltip {
-    
+
     display: flex;
     padding: 1em;
     border-radius: 1em;
@@ -21,9 +22,9 @@
     overflow: hidden;
     width: 10em;
     height: 10em;
-    background-color: rebeccapurple;
+    background-color: $gatsby-purple;
     border-radius: 100%;
-    border: solid 6px rebeccapurple;
+    border: solid 6px $gatsby-purple;
     margin: 0;
 
     img {
@@ -38,9 +39,9 @@
     align-items: center;
     margin-right: 2em;
   }
-  
+
   .gatsby-tooltip-content {
-  
+
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -54,7 +55,7 @@
     p {
       margin: 0 0 .5em;
     }
-  
+
   }
 
 }
@@ -75,5 +76,5 @@
   pre {
     margin-bottom: 1.5em;
   }
-  
+
 }

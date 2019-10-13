@@ -4,7 +4,7 @@
   .map-base {
     width: 100%;
     height: 100%;
-    background: black;
+    background: $blue-grey-50;
   }
 
 }
@@ -19,7 +19,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  color: grey;
+  color: $blue-grey-200;
   font-family: sans-serif;
   width: 100%;
   height: 4em;
