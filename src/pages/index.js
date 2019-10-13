@@ -1,31 +1,72 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Helmet from 'react-helmet';
-import { Popup, Circle } from 'react-leaflet';
+import L from 'leaflet';
+import { Marker } from 'react-leaflet';
+
+import { promiseToZoomIn } from 'lib/map';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
 import Map from 'components/Map';
 
-const DEFAULT_LOCATION = {
+const LOCATION = {
   lat: 38.9072,
   lng: -77.0369
 };
-
-const CENTER = [ DEFAULT_LOCATION.lat, DEFAULT_LOCATION.lng ];
+const LOCATION_NAME = 'Washington, DC';
+const CENTER = [ LOCATION.lat, LOCATION.lng ];
+const DEFAULT_ZOOM = 2;
+const ZOOM = 10;
 
 const IndexPage = () => {
+
+  const markerRef = useRef();
+
+  /**
+   * mapEffect
+   * @description Fires a callback once the page renders
+   * @example Here this is being used to zoom in and set a popup on load
+   */
+
+  function mapEffect({ leafletElement } = {}) {
+    if ( !leafletElement ) return;
+
+    const popup = L.popup();
+
+    popup.setLatLng(LOCATION);
+    popup.setContent(`<p>Hello, ${LOCATION_NAME}!</p>`)
+
+    setTimeout(async () => {
+
+      await promiseToZoomIn(leafletElement, ZOOM);
+
+      const { current = {} } = markerRef || {};
+      const { leafletElement: marker } = current;
+
+      marker.bindPopup(popup);
+
+      setTimeout(() => {
+        marker.openPopup();
+      }, 4000);
+
+    }, 2000)
+  }
+
+  const mapSettings = {
+    center: CENTER,
+    defaultBaseMap: 'OpenStreetMap',
+    zoom: DEFAULT_ZOOM,
+    mapEffect
+  }
+
   return (
     <Layout pageName="home">
       <Helmet>
         <title>Home Page</title>
       </Helmet>
 
-      <Map center={CENTER} zoom={10}>
-        <Circle center={CENTER} fillColor="purple" color="purple" radius={10000}>
-          <Popup>
-            Washington, DC
-          </Popup>
-        </Circle>
+      <Map {...mapSettings}>
+        <Marker ref={markerRef} position={CENTER} />
       </Map>
 
       <Container type="content" className="text-center home-start">
