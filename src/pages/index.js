@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Helmet from 'react-helmet';
 import L from 'leaflet';
 import { Marker } from 'react-leaflet';
@@ -39,7 +39,16 @@ const popupContentGatsby = `
 
 const IndexPage = () => {
   const markerRef = useRef();
+  const [location,setLocation] = useState(LOCATION);
+  const [center,setCenter] = useState(CENTER);
 
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const { latitude, longitude } = pos.coords
+      setLocation({ lat: latitude, lng: longitude })
+      setCenter([latitude, longitude])
+    }
+  )
   /**
    * mapEffect
    * @description Fires a callback once the page renders
@@ -53,7 +62,7 @@ const IndexPage = () => {
       maxWidth: 800
     });
 
-    popup.setLatLng( LOCATION );
+    popup.setLatLng( location );
     popup.setContent( popupContentHello );
 
     setTimeout( async () => {
@@ -70,7 +79,7 @@ const IndexPage = () => {
   }
 
   const mapSettings = {
-    center: CENTER,
+    center: center,
     defaultBaseMap: 'OpenStreetMap',
     zoom: DEFAULT_ZOOM,
     mapEffect
@@ -83,7 +92,7 @@ const IndexPage = () => {
       </Helmet>
 
       <Map {...mapSettings}>
-        <Marker ref={markerRef} position={CENTER} />
+        <Marker ref={markerRef} position={center} />
       </Map>
 
       <Container type="content" className="text-center home-start">
