@@ -15,7 +15,6 @@ const LOCATION = {
   lat: 38.9072,
   lng: -77.0369
 };
-const LOCATION_NAME = 'Washington, DC';
 const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 const ZOOM = 10;
@@ -24,7 +23,7 @@ const timeToZoom = 2000;
 const timeToOpenPopupAfterZoom = 4000;
 const timeToUpdatePopupAfterZoom = timeToOpenPopupAfterZoom + 3000;
 
-const popupContentHello = `<p>Hello, ${LOCATION_NAME}!</p>`;
+const popupContentHello = `<p>Hello 👋</p>`;
 const popupContentGatsby = `
   <div class="popup-gatsby">
     <div class="popup-gatsby-image">
