@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
 import Helmet from 'react-helmet';
 import L from 'leaflet';
 import { Marker } from 'react-leaflet';
@@ -39,18 +39,6 @@ const popupContentGatsby = `
 
 const IndexPage = () => {
   const markerRef = useRef();
-  const [location,setLocation] = useState(LOCATION);
-  const [center,setCenter] = useState(CENTER);
-
-  useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(
-      pos => {
-        const { latitude, longitude } = pos.coords
-        setLocation({ lat: latitude, lng: longitude })
-        setCenter([latitude, longitude])
-      }
-    )
-  },[])
 
   /**
    * mapEffect
@@ -58,21 +46,25 @@ const IndexPage = () => {
    * @example Here this is and example of being used to zoom in and set a popup on load
    */
 
-  function mapEffect({ leafletElement } = {}) {
+  async function mapEffect({ leafletElement } = {}) {
     if ( !leafletElement ) return;
 
     const popup = L.popup({
       maxWidth: 800
     });
 
+    const location = await getCurrentLocation().catch(() => LOCATION );
+
+    const { current = {} } = markerRef || {};
+    const { leafletElement: marker } = current;
+
+    leafletElement.setView( location, DEFAULT_ZOOM );
+    marker.setLatLng( location );
     popup.setLatLng( location );
     popup.setContent( popupContentHello );
 
     setTimeout( async () => {
       await promiseToZoomIn( leafletElement, ZOOM );
-
-      const { current = {} } = markerRef || {};
-      const { leafletElement: marker } = current;
 
       marker.bindPopup( popup );
 
@@ -81,8 +73,17 @@ const IndexPage = () => {
     }, timeToZoom );
   }
 
+  const getCurrentLocation = () => {
+    return new Promise(( resolve, reject ) => {
+      navigator.geolocation.getCurrentPosition(
+        ( pos ) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+        ( err ) => reject( err )
+      );
+    });
+  };
+
   const mapSettings = {
-    center: center,
+    center: CENTER,
     defaultBaseMap: 'OpenStreetMap',
     zoom: DEFAULT_ZOOM,
     mapEffect
@@ -95,7 +96,7 @@ const IndexPage = () => {
       </Helmet>
 
       <Map {...mapSettings}>
-        <Marker ref={markerRef} position={center} />
+        <Marker ref={markerRef} position={CENTER} />
       </Map>
 
       <Container type="content" className="text-center home-start">
