@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import L from 'leaflet';
 import { Marker } from 'react-leaflet';
 
-import { promiseToZoomIn } from 'lib/map';
+import { promiseToFlyTo, getCurrentLocation } from 'lib/map';
 
 import Layout from 'components/Layout';
 import Container from 'components/Container';
@@ -57,13 +57,15 @@ const IndexPage = () => {
     const { current = {} } = markerRef || {};
     const { leafletElement: marker } = current;
 
-    leafletElement.setView( location, DEFAULT_ZOOM );
     marker.setLatLng( location );
     popup.setLatLng( location );
     popup.setContent( popupContentHello );
 
     setTimeout( async () => {
-      await promiseToZoomIn( leafletElement, ZOOM );
+      await promiseToFlyTo( leafletElement, {
+        zoom: ZOOM,
+        center: location
+      });
 
       marker.bindPopup( popup );
 
@@ -71,15 +73,6 @@ const IndexPage = () => {
       setTimeout(() => marker.setPopupContent( popupContentGatsby ), timeToUpdatePopupAfterZoom );
     }, timeToZoom );
   }
-
-  const getCurrentLocation = () => {
-    return new Promise(( resolve, reject ) => {
-      navigator.geolocation.getCurrentPosition(
-        ( pos ) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-        ( err ) => reject( err )
-      );
-    });
-  };
 
   const mapSettings = {
     center: CENTER,
