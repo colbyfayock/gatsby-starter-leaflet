@@ -15,7 +15,6 @@ const LOCATION = {
   lat: 38.9072,
   lng: -77.0369
 };
-const LOCATION_NAME = 'Washington, DC';
 const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 const ZOOM = 10;
@@ -24,7 +23,7 @@ const timeToZoom = 2000;
 const timeToOpenPopupAfterZoom = 4000;
 const timeToUpdatePopupAfterZoom = timeToOpenPopupAfterZoom + 3000;
 
-const popupContentHello = `<p>Hello, ${LOCATION_NAME}!</p>`;
+const popupContentHello = `<p>Hello 👋</p>`;
 const popupContentGatsby = `
   <div class="popup-gatsby">
     <div class="popup-gatsby-image">
@@ -46,21 +45,25 @@ const IndexPage = () => {
    * @example Here this is and example of being used to zoom in and set a popup on load
    */
 
-  function mapEffect({ leafletElement } = {}) {
+  async function mapEffect({ leafletElement } = {}) {
     if ( !leafletElement ) return;
 
     const popup = L.popup({
       maxWidth: 800
     });
 
-    popup.setLatLng( LOCATION );
+    const location = await getCurrentLocation().catch(() => LOCATION );
+
+    const { current = {} } = markerRef || {};
+    const { leafletElement: marker } = current;
+
+    leafletElement.setView( location, DEFAULT_ZOOM );
+    marker.setLatLng( location );
+    popup.setLatLng( location );
     popup.setContent( popupContentHello );
 
     setTimeout( async () => {
       await promiseToZoomIn( leafletElement, ZOOM );
-
-      const { current = {} } = markerRef || {};
-      const { leafletElement: marker } = current;
 
       marker.bindPopup( popup );
 
@@ -68,6 +71,15 @@ const IndexPage = () => {
       setTimeout(() => marker.setPopupContent( popupContentGatsby ), timeToUpdatePopupAfterZoom );
     }, timeToZoom );
   }
+
+  const getCurrentLocation = () => {
+    return new Promise(( resolve, reject ) => {
+      navigator.geolocation.getCurrentPosition(
+        ( pos ) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+        ( err ) => reject( err )
+      );
+    });
+  };
 
   const mapSettings = {
     center: CENTER,
