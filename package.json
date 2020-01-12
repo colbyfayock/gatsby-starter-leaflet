@@ -1,7 +1,7 @@
 {
   "name": "gatsby-starter-leaflet",
   "description": "A Gatsby starter with Leafet!",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Colby Fayock <hello@colbyfayock.com>",
   "dependencies": {
     "gatsby": "^2.18.21",
