@@ -1,4 +1,4 @@
-# Gatsby Leaflet Starter
+# 🍃 Gatsby Leaflet Starter
 
 Jumpstart your next Gatsby mapping project with Leaflet!
 
