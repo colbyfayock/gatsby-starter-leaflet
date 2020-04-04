@@ -45,6 +45,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "bump": "npm version",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write $PWD'**/*.js'",
