@@ -2,7 +2,7 @@
 
 Jumpstart your next Gatsby mapping project with Leaflet!
 
-## ⚡ Quick Start
+## ⚡ Quick Deploy
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colbyfayock/gatsby-starter-leaflet)
 
 ## 🧰 What This Includes
