@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import L from 'leaflet';
 import { Marker } from 'react-leaflet';
 
@@ -13,7 +13,7 @@ import gatsby_astronaut from 'assets/images/gatsby-astronaut.jpg';
 
 const LOCATION = {
   lat: 38.9072,
-  lng: -77.0369
+  lng: -77.0369,
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
@@ -49,7 +49,7 @@ const IndexPage = () => {
     if ( !leafletElement ) return;
 
     const popup = L.popup({
-      maxWidth: 800
+      maxWidth: 800,
     });
 
     const location = await getCurrentLocation().catch(() => LOCATION );
@@ -64,7 +64,7 @@ const IndexPage = () => {
     setTimeout( async () => {
       await promiseToFlyTo( leafletElement, {
         zoom: ZOOM,
-        center: location
+        center: location,
       });
 
       marker.bindPopup( popup );
@@ -78,7 +78,7 @@ const IndexPage = () => {
     center: CENTER,
     defaultBaseMap: 'OpenStreetMap',
     zoom: DEFAULT_ZOOM,
-    mapEffect
+    mapEffect,
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 import 'assets/stylesheets/application.scss';
 
@@ -30,7 +30,7 @@ const Layout = ({ children, pageName }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  pageName: PropTypes.string
+  pageName: PropTypes.string,
 };
 
 export default Layout;
