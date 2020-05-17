@@ -18,7 +18,7 @@ describe( 'lib::map-services', () => {
     it( 'should get a service by name when passing in additional services', () => {
       const name = 'TestService';
       const testService = {
-        name
+        name,
       };
       const service = getMapServiceByName( name, [testService]);
       expect( service.name ).toMatch( name );

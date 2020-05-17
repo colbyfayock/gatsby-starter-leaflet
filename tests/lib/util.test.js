@@ -15,8 +15,8 @@ describe( 'lib::util', () => {
     it( 'should return true when document create is available', () => {
       windowSpy.mockImplementation(() => ({
         document: {
-          createElement: () => {}
-        }
+          createElement: () => {},
+        },
       }));
       expect( isDomAvailable()).toEqual( true );
     });
@@ -28,7 +28,7 @@ describe( 'lib::util', () => {
 
     it( 'should return false with document create not available', () => {
       windowSpy.mockImplementation(() => ({
-        document: undefined
+        document: undefined,
       }));
       expect( isDomAvailable()).toEqual( false );
     });

@@ -2,7 +2,7 @@ import { promiseToFlyTo } from 'lib/map';
 
 const LOCATION = {
   lat: 38.9072,
-  lng: -77.0369
+  lng: -77.0369,
 };
 
 const CENTER = [LOCATION.lat, LOCATION.lng];
@@ -12,7 +12,7 @@ describe( 'lib::map', () => {
     it( 'should reject the promise with an invalid map', async () => {
       const flyToSettings = {
         zoom: 10,
-        center: CENTER
+        center: CENTER,
       };
       let error;
       try {
@@ -25,10 +25,10 @@ describe( 'lib::map', () => {
 
     it( 'should reject the promise with an invalid zoom', async () => {
       const flyToSettings = {
-        center: CENTER
+        center: CENTER,
       };
       const mockMap = {
-        flyTo: () => {}
+        flyTo: () => {},
       };
       let error;
       try {

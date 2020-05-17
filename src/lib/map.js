@@ -19,7 +19,7 @@ export function promiseToFlyTo( map, { zoom, center }) {
     const mapZoom = zoom || map.getZoom();
 
     map.flyTo( mapCenter, mapZoom, {
-      duration: 2
+      duration: 2,
     });
 
     map.once( 'moveend', () => {
