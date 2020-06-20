@@ -1,38 +1,46 @@
 {
   "name": "gatsby-starter-leaflet",
+  "title": "Gatsby Starter Leaflet",
   "description": "A Gatsby starter with Leafet!",
   "version": "0.2.4",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "author": {
+    "name": "Colby Fayock",
+    "email": "hello@colbyfayock.com",
+    "url": "https://twitter.com/colbyfayock"
+  },
   "dependencies": {
-    "gatsby": "^2.23.1",
-    "gatsby-plugin-react-helmet": "^3.3.3",
+    "gatsby": "^2.23.7",
+    "gatsby-plugin-manifest": "^2.4.12",
+    "gatsby-plugin-react-helmet": "^3.3.4",
     "gatsby-plugin-react-leaflet": "2.0.13",
     "gatsby-plugin-resolve-src": "^2.1.0",
-    "gatsby-plugin-sass": "^2.3.3",
-    "gatsby-source-filesystem": "^2.3.10",
+    "gatsby-plugin-sass": "^2.3.4",
+    "gatsby-source-filesystem": "^2.3.12",
+    "gatsby-source-graphql": "^2.5.5",
     "leaflet": "^1.6.0",
     "node-sass": "^4.14.1",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.10.0",
     "react-leaflet": "^2.7.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
-    "babel-preset-gatsby": "^0.4.8",
+    "babel-preset-gatsby": "^0.4.10",
     "enzyme": "^3.11.0",
-    "eslint": "^7.2.0",
+    "eslint": "^7.3.0",
     "eslint-config-zurgbot": "^0.0.7",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^4.0.4",
     "husky": "^4.2.5",
     "jest": "^26.0.1",
-    "lint-staged": "^10.2.9",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
-    "prettier-eslint": "^10.1.1",
+    "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0"
   },
   "keywords": [
@@ -65,6 +73,7 @@
       "yarn lint"
     ]
   },
+  "homepage": "https://gatsby-starter-leaflet.netlify.app/",
   "repository": {
     "type": "git",
     "url": "https://github.com/colbyfayock/gatsby-starter-leaflet"
