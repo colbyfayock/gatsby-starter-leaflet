@@ -75,11 +75,8 @@ class MapMock extends LeafletMock.Map {
     if ( options.maxBounds ) {
       this.setMaxBounds( options.maxBounds );
     }
-    console.log( 'asdfasdf' );
 
     if ( options.center && options.zoom !== undefined ) {
-      console.log( 'options.center', options.center );
-      console.log( 'options.zoom', options.zoom );
       this.setView( L.latLng( options.center ), options.zoom );
     }
   }
