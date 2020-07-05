@@ -20,6 +20,7 @@ module.exports = {
     ecmaVersion: 9,
     ecmaFeatures: {
       jsx: true,
+      modules: true,
     },
   },
 
