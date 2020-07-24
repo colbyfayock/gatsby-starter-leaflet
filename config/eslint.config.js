@@ -6,6 +6,7 @@ module.exports = {
     jest: true,
     es6: true,
     node: true,
+    'cypress/globals': true,
   },
 
   settings: {
@@ -24,7 +25,7 @@ module.exports = {
     },
   },
 
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'cypress'],
 
   extends: ['zurgbot', 'plugin:react/recommended'],
 };

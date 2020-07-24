@@ -7,7 +7,7 @@ module.exports = {
 
   modulePaths: ['<rootDir>/src', '<rootDir>/node_modules'],
 
-  testPathIgnorePatterns: ['.cache', 'config', 'node_modules', 'public', 'src'],
+  testPathIgnorePatterns: ['.cache', 'config', 'node_modules', 'public', 'src', 'tests/integrations'],
 
   setupFilesAfterEnv: ['<rootDir>/config/jest.loadershim.js'],
 

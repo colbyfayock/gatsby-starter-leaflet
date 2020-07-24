@@ -31,9 +31,11 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.1.0",
     "babel-preset-gatsby": "^0.5.1",
+    "cypress": "^4.11.0",
     "enzyme": "^3.11.0",
     "eslint": "^7.4.0",
     "eslint-config-zurgbot": "^0.0.7",
+    "eslint-plugin-cypress": "^2.11.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.5",
     "husky": "^4.2.5",
@@ -41,7 +43,8 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "prettier-eslint": "^11.0.0",
-    "prettier-eslint-cli": "^5.0.0"
+    "prettier-eslint-cli": "^5.0.0",
+    "start-server-and-test": "^1.11.2"
   },
   "keywords": [
     "gatsby",
@@ -55,12 +58,17 @@
     "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "bump": "npm version",
     "clean": "gatsby clean",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:verify": "cypress verify",
     "develop": "gatsby develop",
     "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write $PWD/'**/*.js'",
     "lint": "eslint -c ./config/eslint.config.js . --ext .js",
     "start": "yarn develop",
     "serve": "gatsby serve",
-    "test": "jest --config ./config/jest.config.js"
+    "test": "jest --config ./config/jest.config.js",
+    "test:e2e:open": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:run": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "husky": {
     "hooks": {
