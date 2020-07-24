@@ -59,7 +59,7 @@
     "bump": "npm version",
     "clean": "gatsby clean",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --headless",
     "cy:verify": "cypress verify",
     "develop": "gatsby develop",
     "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write $PWD/'**/*.js'",
