@@ -46,3 +46,6 @@ gatsby new new-gatsby-site https://github.com/colbyfayock/gatsby-starter-leaflet
 yarn develop
 ```
 * You should now be running a new Gatsby site locally! 🎉
+
+## 🗺 Resources to Learn About Mapping
+* [Mapping with React Leaflet](https://egghead.io/playlists/mapping-with-react-leaflet-e0e0?af=atzgap)
