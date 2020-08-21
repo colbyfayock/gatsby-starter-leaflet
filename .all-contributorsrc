@@ -14,6 +14,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "fuku710",
+      "name": "Fukuda Naoto",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/13159978?v=4",
+      "profile": "http://fuku710.info",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
