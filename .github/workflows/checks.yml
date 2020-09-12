@@ -3,7 +3,7 @@ name: Checks
 on: [push, pull_request]
 
 jobs:
-  tests:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,5 +12,6 @@ jobs:
           node-version: 12
       - run: npm install -g yarn
       - run: yarn install
+      - run: yarn lint        
       - run: yarn test
       - run: yarn test:e2e:run
