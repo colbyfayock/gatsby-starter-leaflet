@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gatsby": "^2.24.57",
-    "gatsby-plugin-manifest": "^2.4.23",
+    "gatsby-plugin-manifest": "^2.4.28",
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-react-leaflet": "2.0.13",
     "gatsby-plugin-resolve-src": "^2.1.0",
