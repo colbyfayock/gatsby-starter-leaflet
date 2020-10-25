@@ -8,19 +8,19 @@ import Map from 'components/Map';
 import Snippet from 'components/Snippet';
 
 const json = [
-    {
-        coords: [51.7527, 0.3394],
-        place: "St. Albans"
-    },
-    {
-        coords: [51.7356, 0.4685],
-        place: "Chelmsford"
-    },
-    {
-        place: "Canterbury",
-        coords: [51.2802, 1.0789]
-    }
-]
+  {
+    coords: [51.7527, 0.3394],
+    place: 'St. Albans'
+  },
+  {
+    coords: [51.7356, 0.4685],
+    place: 'Chelmsford'
+  },
+  {
+    place: 'Canterbury',
+    coords: [51.2802, 1.0789]
+  }
+];
 
 const circleLocation = {
   lat: 51.49,
@@ -28,8 +28,8 @@ const circleLocation = {
 };
 
 const rectangleLocation = [
-    [51.49, -0.08],
-    [51.5, -0.06],
+  [51.49, -0.08],
+  [51.5, -0.06],
 ];
 
 const CENTER = [circleLocation.lat, circleLocation.lng];
@@ -55,13 +55,13 @@ const ExamplePage = () => {
       </Helmet>
 
       <Map {...mapSettings}>
-        <CircleMarker center={circleLocation} color={"blue"} radius="20" />
-        <Rectangle bounds={rectangleLocation} color={"black"} />
-        {json.map((item, index) => (
-            <Marker key={index} position={item.coords}>
-                <Popup>{item.place}</Popup>
-            </Marker>
-        ))}
+        <CircleMarker center={circleLocation} color={'blue'} radius="20" />
+        <Rectangle bounds={rectangleLocation} color={'black'} />
+        { json.map(( item, index ) => (
+          <Marker key={index} position={item.coords}>
+            <Popup>{ item.place }</Popup>
+          </Marker>
+        )) }
       </Map>
 
       <Container type="content" className="text-center home-start">
