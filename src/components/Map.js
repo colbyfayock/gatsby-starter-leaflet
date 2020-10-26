@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { any } from 'prop-types';
 import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
 
 import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
@@ -7,12 +7,13 @@ import { isDomAvailable } from 'lib/util';
 
 const DEFAULT_MAP_SERVICE = 'OpenStreetMap';
 
-const Map = ( props ) => {
-  const { children, className, defaultBaseMap = DEFAULT_MAP_SERVICE, mapEffect, ...rest } = props;
-
-  const mapRef = useRef();
+const Map = React.forwardRef(( props ) => {
+  const { children, className, ref, defaultBaseMap = DEFAULT_MAP_SERVICE, mapEffect, ...rest } = props;
 
   useConfigureLeaflet();
+
+  const backupRef = useRef();
+  const mapRef = ref || backupRef;
 
   useRefEffect({
     ref: mapRef,
@@ -53,13 +54,14 @@ const Map = ( props ) => {
       </BaseMap>
     </div>
   );
-};
+});
 
 Map.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   defaultBaseMap: PropTypes.string,
   mapEffect: PropTypes.func,
+  ref: PropTypes.shape({ current: any }),
 };
 
 export default Map;
