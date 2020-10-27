@@ -39,6 +39,7 @@ const popupContentGatsby = `
 
 const IndexPage = () => {
   const markerRef = useRef();
+  const mapRef = useRef();
 
   /**
    * mapEffect
@@ -88,7 +89,7 @@ const IndexPage = () => {
         <title>Home Page</title>
       </Helmet>
 
-      <Map {...mapSettings}>
+      <Map ref={mapRef} {...mapSettings}>
         <Marker ref={markerRef} position={CENTER} />
       </Map>
 
