@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import PropTypes, { any } from 'prop-types';
+import PropTypes from 'prop-types';
 import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
 
 import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
