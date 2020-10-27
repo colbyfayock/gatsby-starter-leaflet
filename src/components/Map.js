@@ -7,8 +7,8 @@ import { isDomAvailable } from 'lib/util';
 
 const DEFAULT_MAP_SERVICE = 'OpenStreetMap';
 
-const Map = React.forwardRef(( props ) => {
-  const { children, className, ref, defaultBaseMap = DEFAULT_MAP_SERVICE, mapEffect, ...rest } = props;
+const Map = React.forwardRef(( props, ref ) => {
+  const { children, className, defaultBaseMap = DEFAULT_MAP_SERVICE, mapEffect, ...rest } = props;
 
   useConfigureLeaflet();
 
@@ -61,7 +61,7 @@ Map.propTypes = {
   className: PropTypes.string,
   defaultBaseMap: PropTypes.string,
   mapEffect: PropTypes.func,
-  ref: PropTypes.shape({ current: any }),
+  ref: PropTypes.any,
 };
 
 export default Map;
