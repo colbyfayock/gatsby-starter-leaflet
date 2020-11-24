@@ -31,7 +31,7 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^0.5.16",
-    "cypress": "^5.5.0",
+    "cypress": "^5.6.0",
     "enzyme": "^3.11.0",
     "eslint": "^7.12.1",
     "eslint-config-zurgbot": "^0.0.7",
