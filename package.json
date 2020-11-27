@@ -44,7 +44,7 @@
     "prettier": "^2.1.2",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0",
-    "start-server-and-test": "^1.11.5"
+    "start-server-and-test": "^1.11.6"
   },
   "keywords": [
     "gatsby",
