@@ -15,7 +15,7 @@
     "gatsby-plugin-react-leaflet": "2.0.13",
     "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-sass": "^2.7.0",
-    "gatsby-source-filesystem": "^2.5.0",
+    "gatsby-source-filesystem": "^2.7.0",
     "gatsby-source-graphql": "^2.10.0",
     "leaflet": "^1.7.1",
     "node-sass": "^4.14.1",
