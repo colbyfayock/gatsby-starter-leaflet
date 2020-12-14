@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import L from 'leaflet';
-import { Marker } from 'react-leaflet';
+import { Marker, useMap } from 'react-leaflet';
 
 import { promiseToFlyTo, getCurrentLocation } from 'lib/map';
 
@@ -37,50 +37,54 @@ const popupContentGatsby = `
   </div>
 `;
 
-const IndexPage = () => {
-  const markerRef = useRef();
-  const mapRef = useRef();
+/**
+ * MapEffect
+ * @description This is an example of creating an effect used to zoom in and set a popup on load
+ */
 
-  /**
-   * mapEffect
-   * @description Fires a callback once the page renders
-   * @example Here this is and example of being used to zoom in and set a popup on load
-   */
+const MapEffect = ({ markerRef }) => {
+  const map = useMap();
 
-  async function mapEffect({ leafletElement } = {}) {
-    if ( !leafletElement ) return;
+  useEffect(() => {
+    if ( !markerRef.current || !map ) return;
 
-    const popup = L.popup({
-      maxWidth: 800,
-    });
-
-    const location = await getCurrentLocation().catch(() => LOCATION );
-
-    const { current = {} } = markerRef || {};
-    const { leafletElement: marker } = current;
-
-    marker.setLatLng( location );
-    popup.setLatLng( location );
-    popup.setContent( popupContentHello );
-
-    setTimeout( async () => {
-      await promiseToFlyTo( leafletElement, {
-        zoom: ZOOM,
-        center: location,
+    ( async function run() {
+      const popup = L.popup({
+        maxWidth: 800,
       });
 
-      marker.bindPopup( popup );
+      const location = await getCurrentLocation().catch(() => LOCATION );
 
-      setTimeout(() => marker.openPopup(), timeToOpenPopupAfterZoom );
-      setTimeout(() => marker.setPopupContent( popupContentGatsby ), timeToUpdatePopupAfterZoom );
-    }, timeToZoom );
-  }
+      const { current: marker } = markerRef || {};
+
+      marker.setLatLng( location );
+      popup.setLatLng( location );
+      popup.setContent( popupContentHello );
+
+      setTimeout( async () => {
+        await promiseToFlyTo( map, {
+          zoom: ZOOM,
+          center: location,
+        });
+
+        marker.bindPopup( popup );
+
+        setTimeout(() => marker.openPopup(), timeToOpenPopupAfterZoom );
+        setTimeout(() => marker.setPopupContent( popupContentGatsby ), timeToUpdatePopupAfterZoom );
+      }, timeToZoom );
+    })();
+  }, [map, markerRef]);
+
+  return null;
+};
+
+const IndexPage = () => {
+  const markerRef = useRef();
 
   const mapSettings = {
     center: CENTER,
     defaultBaseMap: 'OpenStreetMap',
     zoom: DEFAULT_ZOOM,
-    mapEffect,
   };
 
   return (
@@ -89,7 +93,8 @@ const IndexPage = () => {
         <title>Home Page</title>
       </Helmet>
 
-      <Map ref={mapRef} {...mapSettings}>
+      <Map {...mapSettings}>
+        <MapEffect markerRef={markerRef} />
         <Marker ref={markerRef} position={CENTER} />
       </Map>
 

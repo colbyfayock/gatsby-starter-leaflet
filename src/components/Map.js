@@ -1,24 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
+import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
 
-import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
+import { useConfigureLeaflet, useMapServices } from 'hooks';
 import { isDomAvailable } from 'lib/util';
 
 const DEFAULT_MAP_SERVICE = 'OpenStreetMap';
 
-const Map = React.forwardRef(( props, ref ) => {
-  const { children, className, defaultBaseMap = DEFAULT_MAP_SERVICE, mapEffect, ...rest } = props;
+const Map = ( props ) => {
+  const { children, className, defaultBaseMap = DEFAULT_MAP_SERVICE, ...rest } = props;
 
   useConfigureLeaflet();
-
-  const backupRef = useRef();
-  const mapRef = ref || backupRef;
-
-  useRefEffect({
-    ref: mapRef,
-    effect: mapEffect,
-  });
 
   const services = useMapServices({
     names: [...new Set([defaultBaseMap, DEFAULT_MAP_SERVICE])],
@@ -47,21 +39,19 @@ const Map = React.forwardRef(( props, ref ) => {
 
   return (
     <div className={mapClassName}>
-      <BaseMap ref={mapRef} {...mapSettings}>
+      <MapContainer {...mapSettings}>
         { children }
         { basemap && <TileLayer {...basemap} /> }
         <ZoomControl position="bottomright" />
-      </BaseMap>
+      </MapContainer>
     </div>
   );
-});
+};
 
 Map.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   defaultBaseMap: PropTypes.string,
-  mapEffect: PropTypes.func,
-  ref: PropTypes.any,
 };
 
 export default Map;
