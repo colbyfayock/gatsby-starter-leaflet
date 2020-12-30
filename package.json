@@ -16,7 +16,7 @@
     "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-sass": "^2.7.0",
     "gatsby-source-filesystem": "^2.7.0",
-    "gatsby-source-graphql": "^2.10.0",
+    "gatsby-source-graphql": "^2.11.0",
     "leaflet": "^1.7.1",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",
