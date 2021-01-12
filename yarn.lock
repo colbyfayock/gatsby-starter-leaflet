@@ -6846,10 +6846,10 @@ gatsby-source-filesystem@^2.8.1:
     valid-url "^1.0.9"
     xstate "^4.14.0"
 
-gatsby-source-graphql@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.11.0.tgz#a21e97bcb53be6e23bf3fbbfd7b8c6ca79969db7"
-  integrity sha512-0Dv41aEmJDHYjA9FBmRqQVxbc5hOUdUWwVGq6V1fOqcDvjJinEmEOYh9kOy7WdnGeha1HN5udr4XV6B7amF2ag==
+gatsby-source-graphql@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-2.12.0.tgz#8bd4220651e0e288881b56fe9626f4dafcb2159d"
+  integrity sha512-9uN0y+y5xaaVzIs9peyQEerI/usdoo+6LTYPzBIP/A1hrC8/9439RoJkcsoWIVSPbcObVBsbeNfz1dY0wqZ7rQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@graphql-tools/links" "^7.0.3"
