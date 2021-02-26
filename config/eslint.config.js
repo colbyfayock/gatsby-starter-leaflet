@@ -6,16 +6,16 @@ module.exports = {
     jest: true,
     es6: true,
     node: true,
-    'cypress/globals': true,
+    "cypress/globals": true,
   },
 
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
 
-  parser: 'babel-eslint',
+  parser: "babel-eslint",
 
   parserOptions: {
     ecmaVersion: 9,
@@ -25,9 +25,9 @@ module.exports = {
     },
   },
 
-  plugins: ['react', 'react-hooks', 'cypress'],
+  plugins: ["react", "react-hooks", "cypress"],
 
-  extends: ['zurgbot', 'plugin:react/recommended'],
+  extends: ["plugin:react/recommended"],
 };
 
 /* eslint-enable */
