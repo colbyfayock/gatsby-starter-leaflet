@@ -1,16 +1,16 @@
-import React, { useRef, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
-import L from 'leaflet';
-import { Marker, useMap } from 'react-leaflet';
+import React, { useRef, useEffect } from "react";
+import { Helmet } from "react-helmet";
+import L from "leaflet";
+import { Marker, useMap } from "react-leaflet";
 
-import { promiseToFlyTo, getCurrentLocation } from 'lib/map';
+import { promiseToFlyTo, getCurrentLocation } from "lib/map";
 
-import Layout from 'components/Layout';
-import Container from 'components/Container';
-import Map from 'components/Map';
-import Snippet from 'components/Snippet';
+import Layout from "components/Layout";
+import Container from "components/Container";
+import Map from "components/Map";
+import Snippet from "components/Snippet";
 
-import gatsby_astronaut from 'assets/images/gatsby-astronaut.jpg';
+import gatsby_astronaut from "assets/images/gatsby-astronaut.jpg";
 
 const LOCATION = {
   lat: 38.9072,
@@ -46,32 +46,35 @@ const MapEffect = ({ markerRef }) => {
   const map = useMap();
 
   useEffect(() => {
-    if ( !markerRef.current || !map ) return;
+    if (!markerRef.current || !map) return;
 
-    ( async function run() {
+    (async function run() {
       const popup = L.popup({
         maxWidth: 800,
       });
 
-      const location = await getCurrentLocation().catch(() => LOCATION );
+      const location = await getCurrentLocation().catch(() => LOCATION);
 
       const { current: marker } = markerRef || {};
 
-      marker.setLatLng( location );
-      popup.setLatLng( location );
-      popup.setContent( popupContentHello );
+      marker.setLatLng(location);
+      popup.setLatLng(location);
+      popup.setContent(popupContentHello);
 
-      setTimeout( async () => {
-        await promiseToFlyTo( map, {
+      setTimeout(async () => {
+        await promiseToFlyTo(map, {
           zoom: ZOOM,
           center: location,
         });
 
-        marker.bindPopup( popup );
+        marker.bindPopup(popup);
 
-        setTimeout(() => marker.openPopup(), timeToOpenPopupAfterZoom );
-        setTimeout(() => marker.setPopupContent( popupContentGatsby ), timeToUpdatePopupAfterZoom );
-      }, timeToZoom );
+        setTimeout(() => marker.openPopup(), timeToOpenPopupAfterZoom);
+        setTimeout(
+          () => marker.setPopupContent(popupContentGatsby),
+          timeToUpdatePopupAfterZoom
+        );
+      }, timeToZoom);
     })();
   }, [map, markerRef]);
 
@@ -83,7 +86,7 @@ const IndexPage = () => {
 
   const mapSettings = {
     center: CENTER,
-    defaultBaseMap: 'OpenStreetMap',
+    defaultBaseMap: "OpenStreetMap",
     zoom: DEFAULT_ZOOM,
   };
 
@@ -101,8 +104,13 @@ const IndexPage = () => {
       <Container type="content" className="text-center home-start">
         <h2>Still Getting Started?</h2>
         <p>Run the following in your terminal!</p>
-        <Snippet>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</Snippet>
-        <p className="note">Note: Gatsby CLI required globally for the above command</p>
+        <Snippet>
+          gatsby new [directory]
+          https://github.com/colbyfayock/gatsby-starter-leaflet
+        </Snippet>
+        <p className="note">
+          Note: Gatsby CLI required globally for the above command
+        </p>
       </Container>
     </Layout>
   );

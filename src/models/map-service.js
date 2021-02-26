@@ -1,5 +1,5 @@
 class MapService {
-  constructor( service = {}) {
+  constructor(service = {}) {
     this._service = { ...service };
 
     this.name = this._service.name;
