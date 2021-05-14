@@ -62,6 +62,7 @@
     "cy:verify": "cypress verify",
     "develop": "gatsby develop",
     "format": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write $PWD/'**/*.js'",
+    "format:nopath": "prettier-eslint --eslint-config-path ./config/eslint.config.js --write",
     "lint": "eslint -c ./config/eslint.config.js . --ext .js",
     "start": "yarn develop",
     "serve": "gatsby serve",
@@ -76,7 +77,7 @@
   },
   "lint-staged": {
     "**/*.js": [
-      "yarn format",
+      "yarn format:nopath",
       "yarn lint"
     ]
   },
