@@ -1553,7 +1553,7 @@
     camel-case "4.1.2"
     tslib "~2.2.0"
 
-"@graphql-tools/wrap@^7.0.4", "@graphql-tools/wrap@^7.0.5":
+"@graphql-tools/wrap@^7.0.4", "@graphql-tools/wrap@^7.0.8":
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@graphql-tools/wrap/-/wrap-7.0.8.tgz#ad41e487135ca3ea1ae0ea04bb3f596177fb4f50"
   integrity sha512-1NDUymworsOlb53Qfh7fonDi2STvqCtbeE68ntKY9K/Ju/be2ZNxrFSbrBHwnxWcN9PjISNnLcAyJ1L5tCUyhg==
@@ -6634,15 +6634,15 @@ gatsby-source-filesystem@^3.5.0:
     valid-url "^1.0.9"
     xstate "^4.14.0"
 
-gatsby-source-graphql@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-3.5.0.tgz#5168a32781414f9a4c824bf34a8fa08ad69a0a45"
-  integrity sha512-CbHBz5xEK7OELf9P3E90mZw0TPP4toMJBDcoYIBQVXHFcbw1M7KXMnHZJYIN5XR9kH4hDjM3k8bV8tczo1QxDw==
+gatsby-source-graphql@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-graphql/-/gatsby-source-graphql-3.13.0.tgz#ecc77ba21f1512f56affef612f960686e967002c"
+  integrity sha512-ckH0G94GwWXaTJWdXR4dbxm8OsWDyz/Wu4SB7L0CXurxoVePAzmkoduefVPnmq3y/CZbDv6iO3SwKYPybmtANA==
   dependencies:
-    "@babel/runtime" "^7.12.5"
+    "@babel/runtime" "^7.14.8"
     "@graphql-tools/links" "^7.1.0"
     "@graphql-tools/utils" "^7.7.3"
-    "@graphql-tools/wrap" "^7.0.5"
+    "@graphql-tools/wrap" "^7.0.8"
     apollo-link "1.2.14"
     apollo-link-http "^1.5.17"
     dataloader "^2.0.0"
