@@ -15,13 +15,17 @@ module.exports = {
     },
   },
 
-  parser: "babel-eslint",
+  parser: "@babel/eslint-parser",
 
   parserOptions: {
     ecmaVersion: 9,
     ecmaFeatures: {
       jsx: true,
       modules: true,
+    },
+    requireConfigFile: false,
+    babelOptions: {
+      presets: ["@babel/preset-react"],
     },
   },
 
