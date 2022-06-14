@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import L from "leaflet";
 import { Marker, useMap } from "react-leaflet";
@@ -79,6 +80,10 @@ const MapEffect = ({ markerRef }) => {
   }, [map, markerRef]);
 
   return null;
+};
+
+MapEffect.propTypes = {
+  markerRef: PropTypes.object,
 };
 
 const IndexPage = () => {

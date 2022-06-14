@@ -69,6 +69,6 @@ yarn-error.log
 .yarn-integrity
 
 # Cypress
-cypress
-tests/screenshots
-tests/videos
+cypress/downloads
+cypress/screenshots
+cypress/videos
