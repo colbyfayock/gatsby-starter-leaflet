@@ -41,7 +41,7 @@
     "husky": "4.3.8",
     "jest": "^28.1.1",
     "lint-staged": "^13.0.1",
-    "prettier": "^2.7.0",
+    "prettier": "^2.8.0",
     "prettier-eslint": "^15.0.1",
     "prettier-eslint-cli": "^6.0.1",
     "start-server-and-test": "^1.14.0"
